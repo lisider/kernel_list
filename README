@@ -1,0 +1,49 @@
+
+注意: 内核是双链表 ,内核的遍历 是 从 下个节点 到 前一个节点 不包括当前节点
+
+
+
+
+
+
+所以如果从头结点遍历 
+
+	list_for_each(pos,&list_xxx_head.list){
+		tmp_xxx_node = list_entry(pos,list_xxx_t,list);
+
+		//
+	}
+
+刚好能遍历一圈,头结点的结构和普通节点的结构一样,只是 数据部分没有赋值,是脏的
+
+
+
+
+
+如果你要从任意一个节点遍历,则要
+
+	list_for_each(pos2,&tmp_xxx_node->list){
+			tmp_xxx_node2 = list_entry(pos2,list_xxx_t,list);
+
+			if(tmp_xxx_node2 == &list_xxx_head)
+				continue;
+
+			//
+	}
+
+
+
+
+
+
+如果你要从任意一个节点遍历到头结点为止,则要
+
+	list_for_each(pos2,&tmp_xxx_node->list){
+			tmp_xxx_node2 = list_entry(pos2,list_xxx_t,list);
+
+			if(tmp_xxx_node2 == &list_xxx_head)
+				break;
+
+			//
+	}
+

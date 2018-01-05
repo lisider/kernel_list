@@ -50,6 +50,9 @@ all: $(OBJ)
 %:%.cpp 
 	$(CPP) $^ -o $@ $(ALLFLAG)
 
+tags:
+	ctags -R
+
 PHONY = clean
 clean:
 	rm $(OBJ) -f

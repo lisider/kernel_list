@@ -34,7 +34,7 @@ int main(void){
 	// 2.
 	//插入节点进链表
 
-	for (i=0;i<100;i++){
+	for (i=0;i<3;i++){
 		tmp_xxx_node = (list_xxx_t *)malloc(sizeof(list_xxx_t));
 		tmp_xxx_node->num= i;
 		sprintf(tmp_xxx_node->name,"list_xxx_t%d",i);
@@ -51,8 +51,10 @@ int main(void){
 	//遍历
 	list_for_each(pos,&list_xxx_head.list){
 		tmp_xxx_node = list_entry(pos,list_xxx_t,list);
-		printf("list_xxx_t num :\t%d\tname :\t%s\n",tmp_xxx_node->num,tmp_xxx_node->name);
+
+			printf("list_xxx_t num :\t%d\tname :\t%s\n",tmp_xxx_node->num,tmp_xxx_node->name);
 	}
+
 
 	// 4.
 	// 查空
@@ -94,7 +96,7 @@ int main(void){
 
 
 	// 6.
-	// 冒泡排序 ,排序有问题, TODO
+	// 冒泡排序 
 	printf("going to sort\n");
 
 
@@ -108,8 +110,12 @@ int main(void){
 		list_for_each(pos2,&tmp_xxx_node->list){
 			tmp_xxx_node2 = list_entry(pos2,list_xxx_t,list);
 
+			if(tmp_xxx_node2 == &list_xxx_head)
+				break;
+
 			//这里是排序的条件,//TODO
-			if(1 || 1){
+			//if(1 || 1){
+			if(tmp_xxx_node->num > tmp_xxx_node2->num){
 				//这里是交换,不需要变动,但是注意,结构体定义的时候 struct list_head list 成员要放在最后一个
 				memcpy(tmp,tmp_xxx_node,sizeof(list_xxx_t)-sizeof(struct list_head));
 				memcpy(tmp_xxx_node,tmp_xxx_node2,sizeof(list_xxx_t)-sizeof(struct list_head));

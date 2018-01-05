@@ -8,6 +8,10 @@
 
 所以如果从头结点遍历 
 
+	//首先当前节点是头结点,头结点的结构和普通节点的结构一样,都有数据信息,但是数据信息是脏的
+	//我们存储的数据 不在头结点里面 
+
+	//下面的遍历不会经过当前节点(头结点)
 	list_for_each(pos,&list_xxx_head.list){
 		tmp_xxx_node = list_entry(pos,list_xxx_t,list);
 
@@ -22,6 +26,9 @@
 
 如果你要从任意一个节点遍历,则要
 
+	//首先当前节点已经得到了.
+
+	//下面的遍历不会经过当前节点
 	list_for_each(pos2,&tmp_xxx_node->list){
 			tmp_xxx_node2 = list_entry(pos2,list_xxx_t,list);
 
@@ -38,6 +45,10 @@
 
 如果你要从任意一个节点遍历到头结点为止,则要
 
+
+	//首先当前节点已经得到了.
+
+	//下面的遍历不会经过当前节点
 	list_for_each(pos2,&tmp_xxx_node->list){
 			tmp_xxx_node2 = list_entry(pos2,list_xxx_t,list);
 

@@ -48,12 +48,19 @@ int main(void){
 	}
 
 	// 3.
-	//遍历
+	// 遍历方法1
 	list_for_each(pos,&list_xxx_head.list){
 		tmp_xxx_node = list_entry(pos,list_xxx_t,list);
 
-			printf("list_xxx_t num :\t%d\tname :\t%s\n",tmp_xxx_node->num,tmp_xxx_node->name);
+			printf("traversal1 num :\t%d\tname :\t%s\n",tmp_xxx_node->num,tmp_xxx_node->name);
 	}
+
+
+	// 3.
+	// 遍历方法2
+	
+	list_for_each_entry(tmp_xxx_node,&list_xxx_head.list,list)
+		printf("traversal2 num :\t%d\tname :\t%s\n",tmp_xxx_node->num,tmp_xxx_node->name);
 
 
 	// 4.
@@ -64,9 +71,12 @@ int main(void){
 		printf("list is not empty\n");
 
 	// 5.
-	//删除 的一种方式 ,代码可用
+	//删除
 	
 #if 0
+
+	// 5.
+	//删除 的第一种方式 ,代码可用
 	i = 0;
 	list_for_each_safe(pos,n,&list_xxx_head.list){  		
 		list_del(pos); // 注意,删除链表,是删除的list_head,还需要删除 外层的数据 ,删除一个节点之后,并没有破坏这个节点和外围数据的位置关系
@@ -81,6 +91,7 @@ int main(void){
 		printf("list is not empty\n");
 
 #endif
+
 #if 0
 
 	// 5.
@@ -94,15 +105,12 @@ int main(void){
 	}
 #endif
 
-
 	// 6.
 	// 冒泡排序 
 	printf("going to sort\n");
 
-
 	tmp = (list_xxx_t *)malloc(sizeof(list_xxx_t));
 	memset(tmp,0,sizeof(list_xxx_t));
-
 	
 	list_for_each(pos,&list_xxx_head.list){
 		tmp_xxx_node = list_entry(pos,list_xxx_t,list);
@@ -130,10 +138,9 @@ int main(void){
 	else
 		printf("list is not empty\n");
 
-
 	list_for_each(pos,&list_xxx_head.list){
 		tmp_xxx_node = list_entry(pos,list_xxx_t,list);
-		printf("list_xxx_t num :\t%d\tname :\t%s\n",tmp_xxx_node->num,tmp_xxx_node->name);
+		printf("traversal3 num :\t%d\tname :\t%s\n",tmp_xxx_node->num,tmp_xxx_node->name);
 	}
 	
 	return 0;

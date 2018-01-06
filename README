@@ -58,3 +58,39 @@
 			//
 	}
 
+--------------------------------------
+
+
+链表api
+	初始化 init
+	头插(相对于头)
+	尾插 add
+	删 del
+	替换 replace
+	移动(mov 到 另一个链表 头 或者 尾部)
+	last 判定
+	空判定 empty
+	镜像翻转 rotate
+	singular 判定
+	切割一个链表成两个链表 cut
+	粘贴两个链表成一个链表 splice
+
+	从 list_head * pos 找 外层链表地址 
+		list_entry
+		list_first_entry
+
+	循环
+		list_for_each
+		list_for_each_prev
+		list_for_each_safe
+		list_for_each_prev_safe
+		list_for_each_entry
+		
+		不知道加个safe 的作用,目前看来是一样的
+
+		遍历推荐使用
+		list_for_each_entry
+
+	
+
+

@@ -111,7 +111,7 @@ int main(void){
 
 #endif
     //为什么删的时候不使用 遍历的方式删,因为删的时候需要del pos ,而遍历无法提供del pos的接口
-    //list_for_each 和 list_for_each_safe 有什么区别 //TODO
+    //list_for_each 和 list_for_each_safe 有什么区别 //TODO http://www.ifmicro.com/%E8%AE%B0%E5%BD%95/2014/09/22/kernel-list/#%E5%86%85%E6%A0%B8%E9%93%BE%E8%A1%A8%E5%88%A0%E9%99%A4%E7%9A%84%E4%B8%8D%E5%AE%89%E5%85%A8%E6%80%A7
 
     // 6.
     // 冒泡排序 
